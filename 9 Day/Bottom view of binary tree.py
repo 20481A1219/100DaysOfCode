@@ -22,5 +22,5 @@ class Solution:
 
   """
   TC-O(N)
-  SC-O(N)
+  SC-O(N)+O(N)
   """
