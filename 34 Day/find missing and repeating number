@@ -1,0 +1,29 @@
+class Solution:
+    def findTwoElement(self, arr, n): 
+        xor = 0
+
+        for i in range(n):
+            xor ^= arr[i]
+            xor ^= (i+1)
+
+        set_bit = xor & (~(xor-1))
+
+        x = 0
+        y = 0
+
+        for i in range(n):
+            if arr[i] & set_bit:
+                x ^= arr[i]
+            else:
+                y ^= arr[i]
+
+            if (i+1) & set_bit:
+                x ^= (i+1)
+            else:
+                y ^= (i+1)
+
+        for i in range(n):
+            if arr[i] == x:
+                return [x, y]
+
+        return [y, x]
